@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "highlevel-staging",
+    "site": "html-preview",
     "public": "public",
     "cleanUrls": false,
     "ignore": [

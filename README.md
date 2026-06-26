@@ -6,7 +6,7 @@ page listing everything is regenerated automatically on each deploy.
 
 Hosted two ways from the same `public/` folder:
 
-- **Firebase Hosting** (project `highlevel-staging`) → https://highlevel-staging.web.app
+- **Firebase Hosting** (project `highlevel-staging`) → https://html-preview.web.app
 - **GitHub Pages** (auto on push to `main`) → https://hl-sushil.github.io/hosting/
 
 ## How to share something
@@ -19,8 +19,8 @@ Hosted two ways from the same `public/` folder:
    npm run deploy
    ```
 3. Open the URL:
-   - File:   `https://highlevel-staging.web.app/report.html`
-   - Folder: `https://highlevel-staging.web.app/my-demo/`
+   - File:   `https://html-preview.web.app/report.html`
+   - Folder: `https://html-preview.web.app/my-demo/`
 
 The home page (`/`) auto-lists every share with a clickable card.
 
