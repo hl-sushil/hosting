@@ -1,8 +1,8 @@
 # hosting
 
 A dead-simple static host. There's **no upload UI** — you manually add a file or
-folder to `public/`, run deploy, and it's served at a shareable URL. A landing
-page listing everything is regenerated automatically on each deploy.
+folder to `public/`, run deploy, and it's served at a shareable URL. The root
+page lists **nothing**: shares are reachable by direct link only.
 
 Hosted two ways from the same `public/` folder:
 
@@ -22,7 +22,9 @@ Hosted two ways from the same `public/` folder:
    - File:   `https://html-preview.web.app/report.html`
    - Folder: `https://html-preview.web.app/my-demo/`
 
-The home page (`/`) auto-lists every share with a clickable card.
+The home page (`/`) shows a neutral "nothing to browse here" page — it never
+lists or links your shares. Anyone with the exact URL can open a share; without
+it, there's no way to discover what's hosted (there's no directory listing).
 
 > A folder only renders if it contains `index.html`. A standalone `.html` file
 > renders directly; other types open in the browser if it can display them.
@@ -31,7 +33,7 @@ The home page (`/`) auto-lists every share with a clickable card.
 
 | Command | What it does |
 | --- | --- |
-| `npm run build` | Regenerate `public/index.html` from the contents of `public/` |
+| `npm run build` | Regenerate the neutral `public/index.html` landing page |
 | `npm run serve` | Build + preview locally via the Firebase emulator |
 | `npm run deploy` | Build + deploy to Firebase production (`highlevel-staging`) |
 | `npm run deploy:preview -- <name>` | Build + deploy to a temporary Firebase preview channel |
@@ -58,8 +60,7 @@ npx firebase-tools login
 ## How it works
 
 - `public/` is the web root that Firebase Hosting and GitHub Pages both serve.
-- `generate-index.js` scans `public/` and writes `index.html` with **relative**
-  links, so the exact same output works at the Firebase root (`/`) and under the
-  GitHub Pages subpath (`/hosting/`).
+- `generate-index.js` writes a fixed, neutral `index.html` (marked `noindex`) so
+  the root never enumerates your files — they're reachable by direct URL only.
 - `.github/workflows/pages.yml` regenerates the index and deploys to Pages on
   every push to `main`.
