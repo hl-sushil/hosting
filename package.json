@@ -1,0 +1,12 @@
+{
+  "name": "hosting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Drop a file or folder into public/, run deploy, get a shareable URL.",
+  "scripts": {
+    "build": "node generate-index.js",
+    "serve": "npm run build && npx --yes firebase-tools serve --only hosting",
+    "deploy": "npm run build && npx --yes firebase-tools deploy --only hosting",
+    "deploy:preview": "npm run build && npx --yes firebase-tools hosting:channel:deploy"
+  }
+}
