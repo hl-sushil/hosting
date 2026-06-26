@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "highlevel-staging",
     "public": "public",
     "cleanUrls": false,
     "ignore": [
